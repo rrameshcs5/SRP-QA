@@ -1,0 +1,75 @@
+package srpNewInq;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+
+import SRP.LoginW2L;
+
+
+public class InquiryForm 
+{
+	public static String email_inq;
+	
+public	{
+		String fn = "Selenium_FN_10";
+	    String ln = "Selenium_FN_10";
+	    String email = "Selenium_email_10@nomail.com";
+	    String mobile = "9879871010";
+	    String HomePhone = mobile;
+	    String zip = "60173";
+	    email_inq = email;
+		
+	    WebDriver driver = SRP.GetChromeDriver.getDriver();
+		driver.get(url);
+		driver.manage().window().fullscreen();
+		driver.findElement(By.id("username")).sendKeys("automation@scrabble.com");
+		driver.findElement(By.id("password")).sendKeys("Auto1234");
+		driver.findElement(By.name("Login")).submit();
+		Thread.sleep(3001);
+	    
+		driver.findElement(By.id("01r60000000UNpS_Tab")).click();
+		Thread.sleep(1000);
+		
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id35:j_id36:opp__retrainowner")).click();
+		Thread.sleep(500);
+		
+	    driver.findElement(By.id("j_id0:theentireform:j_id27:j_id39:j_id40:opp__firstname")).click();
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id39:j_id40:opp__firstname")).sendKeys(fn);	
+		
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id39:j_id42:opp__lastname")).click();
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id39:j_id42:opp__lastname")).sendKeys(ln);	
+			
+		Select sc1 =new Select(driver.findElement(By.id("j_id0:theentireform:j_id27:j_id39:j_id44:campusPicklist")));
+		sc1.selectByValue("0011800000Ty4WfAAJ");	
+		
+		Select sc2 =new Select(driver.findElement(By.id("j_id0:theentireform:j_id27:j_id39:j_id48:programPicklist")));
+		sc2.selectByValue("a1C18000000V7TnEAK");	
+		
+		Select sc3 =new Select(driver.findElement(By.id("j_id0:theentireform:j_id27:j_id39:j_id55:timeframe")));
+		sc3.selectByValue("0-3 months");	
+		
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id61:j_id62:emailAdd")).click();
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id61:j_id62:emailAdd")).sendKeys(email);	
+		
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id61:j_id64:Home_Phone")).click();
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id61:j_id64:Home_Phone")).sendKeys(mobile);	
+		
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id61:j_id66:Mobile_Phone")).click();
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id61:j_id66:Mobile_Phone")).sendKeys(mobile);	
+		
+		Select sc4 =new Select(driver.findElement(By.id("j_id0:theentireform:j_id27:j_id70:j_id77:Country")));
+		sc4.selectByValue("USA");	
+		
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id70:j_id81:Zip")).click();
+		driver.findElement(By.id("j_id0:theentireform:j_id27:j_id70:j_id81:Zip")).sendKeys(zip);	
+		
+		Select sc5 =new Select(driver.findElement(By.id("j_id0:theentireform:j_id27:j_id83:j_id86:campaignList")));
+		sc5.selectByValue("ACAWinter");	
+		
+		driver.findElement(By.name("j_id0:theentireform:j_id27:j_id28:subBtn")).submit();
+		
+		driver.close();
+		
+	}
+}

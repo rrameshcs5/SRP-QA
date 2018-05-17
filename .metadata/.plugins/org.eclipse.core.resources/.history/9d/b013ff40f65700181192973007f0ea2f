@@ -1,0 +1,36 @@
+package SRP;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Attach {
+
+	public static void main(String[] args) throws InterruptedException 
+		
+{
+			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
+			WebDriver driver = new ChromeDriver();
+		    driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		    driver.manage().window().fullscreen();
+			driver.get("https://scrabble-apply-now.cs23.force.com/?acctid=0016000000YlgUM");
+			
+			//Register OLA with user name and pwd
+			driver.findElement(By.id("Registration:j_id104:usernameLogin")).sendKeys("testuser76@nomail.com");
+			driver.findElement(By.id("Registration:j_id104:passwordLogin")).sendKeys("ABCabc123$");
+			driver.findElement(By.name("Registration:j_id104:j_id109")).click();
+			driver.findElement(By.xpath("//*[@id=\"j_id0:j_id2:theForm:j_id168\"]/input")).click();
+			driver.findElement(By.linkText("SOA-015407")).click(); 
+			 Thread.sleep(3000);
+		     
+			 //driver.findElement(By.linkText("Document Uploads")).click();
+			// By.xpath("span[text()=='Document Uploads']");
+			 By by = By.xpath("//span[.='Document Uploads']");
+			
+			
+}
+}

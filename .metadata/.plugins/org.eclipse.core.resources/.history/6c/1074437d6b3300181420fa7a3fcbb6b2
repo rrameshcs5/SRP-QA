@@ -1,0 +1,43 @@
+package SRP;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Login {
+
+	public void salesForceLogin(String url) throws InterruptedException 
+	{
+
+		WebDriver driver = SRP.GetChromeDriver.getDriver();
+		driver.get(url);
+		driver.manage().window().fullscreen();
+		driver.findElement(By.id("username")).sendKeys("automation@scrabble.com");
+		driver.findElement(By.id("password")).sendKeys("Auto1234");
+		driver.findElement(By.name("Login")).submit();
+		Thread.sleep(3001);
+
+		driver.findElement(By.name("str")).click();
+		driver.findElement(By.name("str")).sendKeys(PRD_W2L.email);
+
+		Thread.sleep(5001);
+
+		driver.findElement(By.id("phSearchButton")).click();
+		Thread.sleep(5001);
+	
+
+WebElement msg=driver.findElement(By.xpath(".//*[@id='PRD_W2L.email']"));
+String text=msg.getText();
+if (msg.isEnabled() && text.contains("Selenium_email_05@nomail.com"))
+{ 
+    System.out.println("Your Lead created with email id ");
+}else{
+    System.out.println("Check the Webto Lead Flow");
+}
+				
+		driver.close();
+
+	}
+}
