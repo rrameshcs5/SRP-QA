@@ -18,6 +18,7 @@ public class BDT_OLA
 {
 		//hello
 		//hi
+		//get it all from github
 			System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver");
 			WebDriver driver = new ChromeDriver();
 		    driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
